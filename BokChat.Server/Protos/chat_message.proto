@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "BokChat.Server.Protos";
+
+service ChatMessage {
+	rpc GetChatMessage (ChatMessageRequest) returns (ChatMessageResponse);
+	rpc GetChatMessages (ChatMessagesRequest) returns (stream ChatMessageResponse);
+}
+
+message ChatMessagesRequest {
+	string userId = 1;
+}
+
+message ChatMessageRequest {
+	string userId = 1;
+}
+
+message ChatMessageResponse {
+	string content = 1;
+}
